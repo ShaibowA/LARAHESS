@@ -31,9 +31,7 @@
                                        name="identifiant" 
                                        id="identifiant"
                                        class="form-control @error('identifiant') is-invalid @enderror" 
-                                       value="{{ old('identifiant') }}"
-                                       placeholder="admin"
-                                       autofocus>
+                                       value="{{ old('identifiant') }}">
                                 @error('identifiant')
                                     <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror
@@ -44,19 +42,13 @@
                                 <input type="password" 
                                        name="mot_de_passe" 
                                        id="mot_de_passe"
-                                       class="form-control @error('mot_de_passe') is-invalid @enderror"
-                                       placeholder="abc">
+                                       class="form-control @error('mot_de_passe') is-invalid @enderror">
                                 @error('mot_de_passe')
                                     <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror
                             </div>
-
                             <button type="submit" class="btn btn-primary w-100">Se connecter</button>
                         </form>
-
-                        <div class="text-center mt-3">
-                            <small class="text-muted">Identifiant: admin | Mot de passe: abc</small>
-                        </div>
                     </div>
                 </div>
             </div>

@@ -8,7 +8,6 @@ class LoginController extends Controller
 {
     public function showLogin()
     {
-        // Si déjà connecté, rediriger vers contacts
         if (session('logged_in')) {
             return redirect()->route('contacts.index');
         }
@@ -26,14 +25,11 @@ class LoginController extends Controller
             'mot_de_passe.required' => 'Le mot de passe est obligatoire.'
         ]);
 
-        // Vérifier les identifiants
         if ($request->identifiant === 'admin' && $request->mot_de_passe === 'abc') {
-            // Connexion réussie
             session(['logged_in' => true]);
             return redirect()->route('contacts.index')->with('success', 'Connexion réussie !');
         }
 
-        // Identifiants incorrects
         return back()->withErrors(['error' => 'Identifiant ou mot de passe incorrect.'])->withInput();
     }
 
